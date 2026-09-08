@@ -387,8 +387,11 @@ if question:
 
         try:
             with st.chat_message("assistant"):
+                response_placeholder = st.empty()
+                full_response = ""
+
                 with st.spinner("Thinking..."):
-                    response = client.models.generate_content(
+                    stream = client.models.generate_content_stream(
                         model=MODEL_NAME,
                         contents=conversation,
                         config=types.GenerateContentConfig(
@@ -398,13 +401,16 @@ if question:
                         )
                     )
 
-                    answer = response.text
+                for chunk in stream:
+                    if chunk.text:
+                        full_response += chunk.text
+                        response_placeholder.markdown(full_response + "▌")
 
-                st.markdown(answer)
+                response_placeholder.markdown(full_response)
 
             st.session_state.messages.append({
                 "role": "assistant",
-                "content": answer
+                "content": full_response
             })
 
         except Exception as e:
