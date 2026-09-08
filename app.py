@@ -1,5 +1,5 @@
 import streamlit as st
-from openai import OpenAI
+from google import genai
 
 st.set_page_config(
     page_title="AI Health Assistant",
@@ -62,13 +62,14 @@ Safety rules:
 """
 
     try:
-        client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
-        response = client.responses.create(
-            model="gpt-5-mini",
-            instructions=system_prompt,
-            input=question
+        client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+        
+        response = client.models.generate_content(
+        model="gemini-2.5-flash",
+        contents=question
         )
-        answer = response.output_text
+        
+        answer = response.text
     except Exception as e:
         answer = (
             "I couldn't connect to the AI service. Please check that your "
