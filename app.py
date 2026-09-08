@@ -332,15 +332,6 @@ if not st.session_state.messages:
 else:
     selected_question = None
 
-    for index, question in enumerate(friend_questions):
-        with cols[index % 2]:
-            if st.button(
-                question,
-                key=f"friend_{index}",
-                use_container_width=True
-            ):
-                selected_question = question
-
 for message in st.session_state.messages[-20:]:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
