@@ -23,6 +23,17 @@ st.markdown("""
     margin-bottom: 1.5rem;
 }
 
+.friend-note {
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    background: rgba(156, 39, 176, 0.08);
+    border: 1px solid rgba(156, 39, 176, 0.25);
+    border-left: 4px solid #ab47bc;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 .hero h1 {
     margin-bottom: 0.3rem;
 }
