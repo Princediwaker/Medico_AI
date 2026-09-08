@@ -241,14 +241,24 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-st.markdown("""
-<div class="disclaimer">
-    ⚠️ <b>Important:</b> This assistant provides general educational
-    information and is not a substitute for professional medical advice.
-    For serious or emergency symptoms, contact a qualified healthcare
-    professional or local emergency service.
-</div>
-""", unsafe_allow_html=True)
+if st.session_state.friend_mode:
+    st.markdown("""
+    <div class="friend-note">
+        💜 <b>A little reminder:</b> You can talk openly here about
+        your feelings, stress, worries, or anything that's on your mind.
+        I'm here to listen and support you, but I'm not a replacement
+        for a mental health professional.
+    </div>
+    """, unsafe_allow_html=True)
+else:
+    st.markdown("""
+    <div class="disclaimer">
+        ⚠️ <b>Important:</b> This assistant provides general educational
+        information and is not a substitute for professional medical advice.
+        For serious or emergency symptoms, contact a qualified healthcare
+        professional or local emergency service.
+    </div>
+    """, unsafe_allow_html=True)
 
 if not st.session_state.friend_mode:
     st.markdown(
