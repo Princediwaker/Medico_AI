@@ -329,7 +329,7 @@ else:
             ):
                 selected_question = question
 
-for message in st.session_state.messages:
+for message in st.session_state.messages[-20:]:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
