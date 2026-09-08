@@ -174,7 +174,7 @@ if "friend_mode" not in st.session_state:
     st.session_state.friend_mode = False
 
 with st.sidebar:
-    st.title("🩺 Health Assistant")
+    st.title("🩺 Medico AI")
     st.markdown("### Choose a mode")
 
     normal_mode = st.button(
@@ -245,7 +245,7 @@ if st.session_state.friend_mode:
 else:
     st.markdown("""
     <div class="hero">
-        <h1>🩺 AI Health Assistant</h1>
+        <h1>🩺 Health Assistant</h1>
         <p>
             Ask questions about health, wellness, fitness,
             nutrition and healthy lifestyle habits.
