@@ -14,46 +14,79 @@ st.markdown("""
 .main {
     padding-top: 1rem;
 }
+
 .hero {
     padding: 1.5rem;
     border-radius: 18px;
-    background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+    background: rgba(49, 51, 63, 0.35);
+    border: 1px solid rgba(128, 128, 128, 0.25);
     margin-bottom: 1.5rem;
 }
+
 .hero h1 {
     margin-bottom: 0.3rem;
 }
+
 .hero p {
     margin-bottom: 0;
-    color: #455a64;
+    color: inherit;
+    opacity: 0.8;
 }
+
 .disclaimer {
     padding: 0.9rem 1rem;
     border-radius: 12px;
-    background-color: #fff8e1;
-    border-left: 4px solid #ffb300;
+    background: rgba(255, 193, 7, 0.08);
+    border: 1px solid rgba(255, 193, 7, 0.25);
+    border-left: 4px solid #d9a400;
     font-size: 0.9rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
 .friend-mode {
     padding: 1rem;
     border-radius: 14px;
-    background-color: #f3e5f5;
-    border-left: 4px solid #8e24aa;
+    background: rgba(156, 39, 176, 0.08);
+    border: 1px solid rgba(156, 39, 176, 0.25);
+    border-left: 4px solid #ab47bc;
     margin-bottom: 1rem;
 }
+
 .section-title {
     margin-top: 1.2rem;
     margin-bottom: 0.5rem;
 }
+
 div.stButton > button {
     border-radius: 10px;
     min-height: 45px;
 }
+
+@media (prefers-color-scheme: light) {
+    .hero {
+        background: linear-gradient(
+            135deg,
+            rgba(232, 245, 233, 0.9),
+            rgba(227, 242, 253, 0.9)
+        );
+        border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .disclaimer {
+        background: rgba(255, 193, 7, 0.10);
+        border: 1px solid rgba(255, 193, 7, 0.25);
+        border-left: 4px solid #d9a400;
+    }
+
+    .friend-mode {
+        background: rgba(156, 39, 176, 0.08);
+        border: 1px solid rgba(156, 39, 176, 0.20);
+        border-left: 4px solid #8e24aa;
+    }
+}
 </style>
 """, unsafe_allow_html=True)
-
 MODEL_NAME = "gemini-2.5-flash"
 
 @st.cache_resource
