@@ -398,7 +398,7 @@ if question:
                         config=types.GenerateContentConfig(
                             system_instruction=system_instruction,
                             temperature=0.7,
-                            max_output_tokens=800
+                            max_output_tokens=1200
                         )
                     )
 
