@@ -58,9 +58,11 @@ MODEL_NAME = "gemini-2.5-flash"
 
 @st.cache_resource
 def get_gemini_client():
-    if "GEMINI_API_KEY" not in st.secrets:
+    try:
+        api_key = st.secrets["GEMINI_API_KEY"]
+        return genai.Client(api_key=api_key)
+    except Exception:
         return None
-    return genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
 HEALTH_INSTRUCTION = """
 You are an AI Health Assistant designed for general health and wellness education.
