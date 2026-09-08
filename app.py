@@ -60,8 +60,14 @@ MODEL_NAME = "gemini-2.5-flash"
 def get_gemini_client():
     try:
         api_key = st.secrets["GEMINI_API_KEY"]
+
+        if not api_key:
+            return None
+
         return genai.Client(api_key=api_key)
-    except Exception:
+
+    except Exception as e:
+        st.error(f"Gemini configuration error: {e}")
         return None
 
 HEALTH_INSTRUCTION = """
