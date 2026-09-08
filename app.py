@@ -4,7 +4,7 @@ from google.genai import types
 import time
 
 st.set_page_config(
-    page_title="AI Health Assistant",
+    page_title="Medico AI",
     page_icon="🩺",
     layout="centered",
     initial_sidebar_state="expanded"
