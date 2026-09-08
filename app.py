@@ -1,6 +1,7 @@
 import streamlit as st
 from google import genai
 from google.genai import types
+import time
 
 st.set_page_config(
     page_title="AI Health Assistant",
@@ -405,6 +406,7 @@ if question:
                     if chunk.text:
                         full_response += chunk.text
                         response_placeholder.markdown(full_response + "▌")
+                        time.sleep(0.03)
 
                 response_placeholder.markdown(full_response)
 
