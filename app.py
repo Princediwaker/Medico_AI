@@ -190,14 +190,12 @@ with st.sidebar:
     if st.session_state.friend_mode:
         st.markdown("### 💜 Friend Mode")
         st.write(
-            "A supportive space for everyday feelings, stress, "
-            "motivation and mental wellness."
+            "A supportive space to share your feelings, stress, motivation and mental wellness."
         )
     else:
         st.markdown("### 🩺 Health Mode")
         st.write(
-            "Ask general questions about health, fitness, nutrition "
-            "and healthy lifestyle habits."
+            "Hey! Feel free to ask general questions about health, fitness, nutrition and healthy lifestyle habits."
         )
 
     st.divider()
@@ -211,7 +209,7 @@ with st.sidebar:
 
     st.divider()
 
-    st.caption("Educational project powered by Google Gemini.")
+    st.caption("This project powered by Google Gemini and made by Prince Diwakar.")
 
 if st.session_state.friend_mode:
     st.markdown("""
