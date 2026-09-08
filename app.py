@@ -271,53 +271,65 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-if not st.session_state.friend_mode:
-    st.markdown(
-        '<h3 class="section-title">💡 Quick Questions</h3>',
-        unsafe_allow_html=True
-    )
+if not st.session_state.messages:
+    if not st.session_state.friend_mode:
+        st.markdown(
+            '<h3 class="section-title">💡 Quick Questions</h3>',
+            unsafe_allow_html=True
+        )
 
-    st.caption("Click a question to get an answer instantly.")
+        st.caption("Click a question to get an answer instantly.")
 
-    quick_questions = [
-        "Why is sleep important?",
-        "What is BMI?",
-        "Why should we drink enough water?",
-        "What are the benefits of exercise?",
-        "How many hours of sleep do adults need?",
-        "What is a balanced diet?",
-        "How can I reduce daily stress?",
-        "Why is breakfast important?"
-    ]
+        quick_questions = [
+            "Why is sleep important?",
+            "What is BMI?",
+            "Why should we drink enough water?",
+            "What are the benefits of exercise?",
+            "How many hours of sleep do adults need?",
+            "What is a balanced diet?",
+            "How can I reduce daily stress?",
+            "Why is breakfast important?"
+        ]
 
-    cols = st.columns(2)
-    selected_question = None
+        cols = st.columns(2)
+        selected_question = None
 
-    for index, question in enumerate(quick_questions):
-        with cols[index % 2]:
-            if st.button(
-                question,
-                key=f"quick_{index}",
-                use_container_width=True
-            ):
-                selected_question = question
+        for index, question in enumerate(quick_questions):
+            with cols[index % 2]:
+                if st.button(
+                    question,
+                    key=f"quick_{index}",
+                    use_container_width=True
+                ):
+                    selected_question = question
 
+    else:
+        st.markdown(
+            '<h3 class="section-title">💬 You can start with...</h3>',
+            unsafe_allow_html=True
+        )
+
+        friend_questions = [
+            "I'm feeling stressed today.",
+            "I don't feel very motivated.",
+            "I had a difficult day.",
+            "How can I relax when my mind feels busy?",
+            "Can you give me some encouragement?",
+            "I just want someone to talk to."
+        ]
+
+        cols = st.columns(2)
+        selected_question = None
+
+        for index, question in enumerate(friend_questions):
+            with cols[index % 2]:
+                if st.button(
+                    question,
+                    key=f"friend_{index}",
+                    use_container_width=True
+                ):
+                    selected_question = question
 else:
-    st.markdown(
-        '<h3 class="section-title">💬 You can start with...</h3>',
-        unsafe_allow_html=True
-    )
-
-    friend_questions = [
-        "I'm feeling stressed today.",
-        "I don't feel very motivated.",
-        "I had a difficult day.",
-        "How can I relax when my mind feels busy?",
-        "Can you give me some encouragement?",
-        "I just want someone to talk to."
-    ]
-
-    cols = st.columns(2)
     selected_question = None
 
     for index, question in enumerate(friend_questions):
